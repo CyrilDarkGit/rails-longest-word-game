@@ -9,7 +9,6 @@ class PagesController < ApplicationController
   def score
     result = JSON.parse(URI.open("https://wagon-dictionary.herokuapp.com/#{params[:guess]}/").read)
     letters = params[:letters].to_s
-
     check_rule = true
     params[:guess].upcase.chars.each { |letter| letters.include?(letter) ? letters[letters.index(letter)] = "0" : check_rule = false }
 
